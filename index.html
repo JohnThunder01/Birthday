@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+    <link rel="icon" href="/logo.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title> Sarah's Birthday</title>
+<head>
+<body>
+    
+    <canvas id="confetti-canvas"></canvas>
+
+    <script>
+      // Set up the canvas
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+  
+      // Confetti particle properties
+      const particleCount = 500;
+      const particleSize = 8;
+      const colors = ['#FF6B6B', '#FFD166', '#06D6A0', '#118AB2', '#073B4C'];
+  
+      // Create confetti particles
+      const particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: -particleSize,
+          size: particleSize,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          velocity: {
+            x: (Math.random() - 0.5) * 6,
+            y: Math.random() * 8 + 2
+          }
+        });
+      }
+  
+      // Animate the confetti
+      function animateConfetti() {
+        requestAnimationFrame(animateConfetti);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+        particles.forEach(particle => {
+          particle.x += particle.velocity.x;
+          particle.y += particle.velocity.y;
+  
+          if (particle.y > canvas.height + particle.size) {
+            particle.x = Math.random() * canvas.width;
+            particle.y = -particle.size;
+          }
+  
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
+          ctx.fillStyle = particle.color;
+          ctx.fill();
+        });
+      }
+  
+      // Start the confetti animation
+      animateConfetti();
+    </script>
+
+    <div class="container">
+        <div class="tulip">
+         <div class="stem">
+           <div class="tulipHead">
+             <div class="tulipHair lightTulip lightTulip-1"></div>
+             <div class="tulipHair darkTulip darkTulip-1"></div>
+             <div class="tulipHair lightTulip lightTulip-2"></div>
+             <div class="tulipHair darkTulip darkTulip-2"></div>
+             <div class="tulipHair lightTulip lightTulip-3"></div>
+             <div class="tulipFace">
+               <div class="leftEye tulipEyes"></div>
+               <div class="rightEye tulipEyes"></div>
+               <div class="tulipSmile"></div>
+               <div class="leftBlush tulipBlush"></div>
+               <div class="rightBlush tulipBlush"></div>
+             </div>
+           </div>
+           <div class="rightTulipLeaf tulipLeaf leaf"></div>
+           <div class="leftTulipLeaf tulipLeaf leaf"></div>
+           <div class="rightStemLeaf stemLeaf leaf"></div>
+           <div class="leftStemLeaf stemLeaf leaf"></div>
+         </div>
+       </div>
+       <div class="leftBabyTulip tulip">
+         <div class="stem">
+           <div class="tulipHead">
+             <div class="tulipHair lightTulip lightTulip-1"></div>
+             <div class="tulipHair darkTulip darkTulip-1"></div>
+             <div class="tulipHair lightTulip lightTulip-2"></div>
+             <div class="tulipHair darkTulip darkTulip-2"></div>
+             <div class="tulipHair lightTulip lightTulip-3"></div>
+             <div class="tulipFace">
+               <div class="leftEye tulipEyes"></div>
+               <div class="rightEye tulipEyes"></div>
+               <div class="tulipSmile"></div>
+               <div class="leftBlush tulipBlush"></div>
+               <div class="rightBlush tulipBlush"></div>
+             </div>
+           </div>
+           <div class="rightTulipLeaf tulipLeaf leaf"></div>
+           <div class="leftTulipLeaf tulipLeaf leaf"></div>
+           <div class="rightStemLeaf stemLeaf leaf"></div>
+           <div class="leftStemLeaf stemLeaf leaf"></div>
+         </div>
+       </div>
+         <div class="rightBabyTulip tulip">
+         <div class="stem">
+           <div class="tulipHead">
+             <div class="tulipHair lightTulip lightTulip-1"></div>
+             <div class="tulipHair darkTulip darkTulip-1"></div>
+             <div class="tulipHair lightTulip lightTulip-2"></div>
+             <div class="tulipHair darkTulip darkTulip-2"></div>
+             <div class="tulipHair lightTulip lightTulip-3"></div>
+             <div class="tulipFace">
+               <div class="leftEye tulipEyes"></div>
+               <div class="rightEye tulipEyes"></div>
+               <div class="tulipSmile"></div>
+               <div class="leftBlush tulipBlush"></div>
+               <div class="rightBlush tulipBlush"></div>
+             </div>
+           </div>
+           <div class="rightTulipLeaf tulipLeaf leaf"></div>
+           <div class="leftTulipLeaf tulipLeaf leaf"></div>
+           <div class="rightStemLeaf stemLeaf leaf"></div>
+           <div class="leftStemLeaf stemLeaf leaf"></div>
+         </div>
+       </div>
+     </div>
+
+     
+    <div>
+        <h1 class="Text">Happy Birthday Sarah</h1>
+        <p class="Dev">Developed By John</p>
+    </div>
+
+</body>
+</head>
+</html>
